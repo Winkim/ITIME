@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_timing">
+
+    <fragment
+        android:id="@+id/nav_timing"
+        android:name="com.winkim.itime.ui.timing.TimingFragment"
+        android:label="@string/menu_timing"
+        tools:layout="@layout/fragment_timing" />
+
+    <fragment
+        android:id="@+id/nav_label"
+        android:name="com.winkim.itime.ui.label.LabelFragment"
+        android:label="@string/menu_label"
+        tools:layout="@layout/fragment_label" />
+
+    <fragment
+        android:id="@+id/nav_change_font"
+        android:name="com.winkim.itime.ui.change_font.ChangeFontFragment"
+        android:label="@string/menu_change_font"
+        tools:layout="@layout/fragment_change_font" />
+
+    <fragment
+        android:id="@+id/nav_theme_color"
+        android:name="com.winkim.itime.ui.theme_color.ThemeColorFragment"
+        android:label="@string/menu_theme_color"
+        tools:layout="@layout/fragment_theme_color" />
+
+    <fragment
+        android:id="@+id/nav_advanced_version"
+        android:name="com.winkim.itime.ui.advanced_version.AdvancedVersionFragment"
+        android:label="@string/menu_advanced_version"
+        tools:layout="@layout/fragment_advanced_version" />
+
+    <fragment
+        android:id="@+id/nav_setting"
+        android:name="com.winkim.itime.ui.setting.SettingFragment"
+        android:label="@string/menu_setting"
+        tools:layout="@layout/fragment_setting" />
+
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="com.winkim.itime.ui.about.AboutFragment"
+        android:label="@string/menu_about"
+        tools:layout="@layout/fragment_about" />
+
+    <fragment
+        android:id="@+id/nav_help_and_feedback"
+        android:name="com.winkim.itime.ui.help_and_feedback.HelpAndFeedbackFragment"
+        android:label="@string/menu_help_and_feedback"
+        tools:layout="@layout/fragment_help_and_feedback" />
+</navigation>
