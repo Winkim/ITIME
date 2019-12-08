@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/addtiming"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.add_timing.AddTimingFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="161dp"
+        android:background="#000000"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textViewTimingTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/text_view_addtiming_set_title"
+            android:textColor="#ffffff"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextTimingTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:ellipsize="end"
+            android:ems="10"
+            android:hint="@string/edit_view_addtiming_set_title"
+            android:inputType="textPersonName"
+            android:textColorHint="#ffffff"
+            app:layout_constraintStart_toStartOf="@+id/textViewTimingTitle"
+            app:layout_constraintTop_toBottomOf="@+id/textViewTimingTitle"
+            />
+
+        <TextView
+            android:id="@+id/textViewRemark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:text="@string/text_view_addtiming_repeat"
+            android:textColor="#ffffff"
+            app:layout_constraintStart_toStartOf="@+id/editTextTimingTitle"
+            app:layout_constraintTop_toBottomOf="@+id/editTextTimingTitle" />
+
+        <EditText
+            android:id="@+id/editTextTimingRemark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="60dp"
+            android:ellipsize="end"
+            android:ems="10"
+            android:hint="@string/text_view_addtiming_repeat"
+            android:inputType="textPersonName"
+            android:textColorHint="#ffffff"
+            app:layout_constraintStart_toStartOf="@+id/textViewRemark"
+            app:layout_constraintTop_toBottomOf="@+id/textViewRemark" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_addtiming_set_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_btn_addtiming_set_data_24px"
+        android:text="@string/btn_text_view_addtiming_date1"
+        android:textFontWeight="@android:integer/config_longAnimTime"
+        android:gravity="center_vertical"
+        android:background="@null"
+        />
+
+    <Button
+        android:id="@+id/btn_addtiming_set_repeat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_btn_addtiming_set_repeat_24px"
+        android:text="@string/btn_text_view_addtiming_repeat1"
+        android:gravity="center_vertical"/>
+
+    <Button
+        android:id="@+id/btn_addtiming_set_picture"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_btn_addtiming_set_picture_24px"
+        android:text="@string/btn_text_view_addtiming_set_picture"
+        android:gravity="center_vertical"/>
+
+    <Button
+        android:id="@+id/btn_addtiming_set_tag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_btn_addtiming_set_tag_24px"
+        android:text="@string/btn_text_view_addtiming_add_tag"
+        android:gravity="center_vertical"/>
+
+</LinearLayout>

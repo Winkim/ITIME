@@ -17,6 +17,24 @@
     <string name="menu_about">About</string>
     <string name="menu_help_and_feedback">Help and feedback</string>
 
+    <string name="text_view_addtiming_set_title">标题</string>
+    <string name="edit_view_addtiming_set_title">生日，纪念日，节日，考试…</string>
+    <string name="text_view_addtiming_repeat">重复设置</string>
+    <string name="edit_view_addtiming_repeat">无</string>
+
+
+    <string name="btn_text_view_addtiming_date1">日期&#10;aa</string>
+    <string name="btn_text_view_addtiming_date2">长按使用日期计算器</string>
+    <string name="btn_text_view_addtiming_repeat1">重复设置</string>
+    <string name="btn_text_view_addtiming_repeat2">无</string>
+    <string name="btn_text_view_addtiming_set_picture">图片</string>
+    <string name="btn_text_view_addtiming_add_tag">添加标签</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="title_activity_add_timing">AddTimingActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>
