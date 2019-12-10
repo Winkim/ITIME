@@ -2,6 +2,8 @@ package com.winkim.itime.ui.timing;
 
 import android.content.Context;
 
+import com.winkim.itime.data.model.Timing;
+
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -14,11 +16,11 @@ public class TimingSaver {
 
     Context context;
 
-    public ArrayList<TimingViewModel> getTimings() {
+    public ArrayList<Timing> getTimings() {
         return Timings;
     }
 
-    ArrayList<TimingViewModel> Timings = new ArrayList<TimingViewModel>();
+    ArrayList<Timing> Timings = new ArrayList<>();
 
     public void save(){
         try{
@@ -32,11 +34,11 @@ public class TimingSaver {
         }
     }
 
-    public ArrayList<TimingViewModel> load(){
+    public ArrayList<Timing> load(){
         try{
             ObjectInputStream inputStream= new ObjectInputStream(
                     context.openFileInput("Timing.txt"));
-            Timings = (ArrayList<TimingViewModel>) inputStream.readObject();
+            Timings = (ArrayList<Timing>) inputStream.readObject();
             inputStream.close();
         }
         catch (Exception e){
