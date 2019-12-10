@@ -10,10 +10,10 @@ public class Timing implements Serializable {
     private String remark;
     private String date;
     private ArrayList<Integer> repeats;
-    private Drawable picture;
+    private Integer picture;
     private String tag;
 
-    public Timing(String title,String remark,String date,ArrayList<Integer> repeats,Drawable picture,String tag){
+    public Timing(String title,String remark,String date,ArrayList<Integer> repeats,Integer picture,String tag){
         this.title = title;
         this.remark = remark;
         this.date = date;
@@ -30,7 +30,7 @@ public class Timing implements Serializable {
 
     public ArrayList<Integer> getRepeats(){ return repeats; }
 
-    public Drawable getPicture(){return picture;}
+    public int getPicture(){return picture;}
 
     private String getTag(){return tag;}
 }

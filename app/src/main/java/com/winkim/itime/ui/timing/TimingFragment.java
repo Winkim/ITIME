@@ -4,30 +4,33 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import androidx.annotation.Nullable;
+import android.widget.ListView;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import com.winkim.itime.R;
+import com.winkim.itime.ui.add_timing.AddTimingActivity;
 
 public class TimingFragment extends Fragment {
 
-    private TimingViewModel timingViewModel;
+
+    AddTimingActivity.TimingsArrayAdapter timingsArrayAdapter;
+
+    public TimingFragment(AddTimingActivity.TimingsArrayAdapter timingsArrayAdapter){
+        this.timingsArrayAdapter=timingsArrayAdapter;
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
-        timingViewModel =
-                ViewModelProviders.of(this).get(TimingViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_timing, container, false);
-        final TextView textView = root.findViewById(R.id.text_timing);
-        timingViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        //timingViewModel =
+                //ViewModelProviders.of(this).get(TimingViewModel.class);
+        View root = inflater.inflate(R.layout.list_item_timings, container, false);
+        ListView listViewSuper = (ListView) root.findViewById(R.id.list_view_timings);
+        listViewSuper.setAdapter(timingsArrayAdapter);
+
+        this.registerForContextMenu(listViewSuper);
+
         return root;
     }
 }
