@@ -4,4 +4,11 @@
             <item name="windowNoTitle">true</item>
             <item name="android:statusBarColor">@android:color/transparent</item>
         </style>
+
+    <style name="DatePickerDialogTheme" parent="android:Theme.Material.Light.Dialog">
+        <item name="android:colorPrimary">#03A9F4</item>
+        <item name="android:colorPrimaryDark">#03A9F4</item>
+        <item name="android:colorAccent">#03A9F4</item>
+    </style>
+
 </resources>

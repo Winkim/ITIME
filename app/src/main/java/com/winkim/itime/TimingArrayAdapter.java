@@ -18,7 +18,7 @@ import java.util.Locale;
 
 import static android.app.Activity.RESULT_OK;
 
-class TimeAdapter extends ArrayAdapter<TimingClass> {
+class TimingArrayAdapter extends ArrayAdapter<TimingClass> {
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMM  dd,yyyy", Locale.ENGLISH);
 
     SimpleDateFormat simpleDateFormat3 = new SimpleDateFormat("MMM  dd,yyyy HH:mm:ss EEE", Locale.ENGLISH);
@@ -26,7 +26,7 @@ class TimeAdapter extends ArrayAdapter<TimingClass> {
 
     int count;
 
-    public TimeAdapter(@NonNull Context context, int resource, @NonNull ArrayList<TimingClass> objects) {
+    public TimingArrayAdapter(@NonNull Context context, int resource, @NonNull ArrayList<TimingClass> objects) {
         super(context, resource, objects);
     }
 

@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     public static final int RESULT_UPDATE = 901;
     private AppBarConfiguration mAppBarConfiguration;
     private ArrayList<TimingClass> timingClassArrayList = new ArrayList<>();
-    AddTimingActivity timingsArrayAdapter;
+    TimingArrayAdapter timingsArrayAdapter;
     ListView listView;
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
     SimpleDateFormat simpleDateFormatMore = new SimpleDateFormat("MMM  dd,yyyy HH:mm:ss EEE", Locale.ENGLISH);
@@ -46,8 +46,8 @@ public class MainActivity extends AppCompatActivity {
 
         init();
 
-        timingsArrayAdapter = new AddTimingActivity(MainActivity.this,R.layout.list_item_timings, timingClassArrayList);
-        listView = findViewById(R.layout.list_item_timings);
+        timingsArrayAdapter = new TimingArrayAdapter(MainActivity.this,R.layout.list_item_timings, timingClassArrayList);
+        listView.setAdapter(timingsArrayAdapter);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -75,13 +75,13 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
     }
 
-    @Override
+    //@Override
     protected void onDestory(){
         super.onDestroy();
         timingSaver.save();
     }
 
-    @Override
+    //@Override
     private void init(){
         timingSaver = new TimingSaver(this);
         timingClassArrayList = timingSaver.load();
