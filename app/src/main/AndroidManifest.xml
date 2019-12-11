@@ -9,11 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".SelectTimingActivity"></activity>
+        <activity android:name=".TimingChangeActivity" />
         <activity
-            android:name=".ui.add_timing.AddTimingActivity"
+            android:name=".AddTimingActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_add_timing"
-            android:theme="@style/FullscreenTheme"></activity>
+            android:theme="@style/FullscreenTheme" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"

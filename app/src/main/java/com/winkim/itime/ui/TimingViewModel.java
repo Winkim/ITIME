@@ -1,4 +1,4 @@
-package com.winkim.itime.ui.timing;
+package com.winkim.itime.ui;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

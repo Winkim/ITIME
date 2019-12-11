@@ -1,10 +1,7 @@
-package com.winkim.itime.ui.timing;
+package com.winkim.itime;
 
 import android.content.Context;
 
-import com.winkim.itime.data.model.Timing;
-
-import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
@@ -16,17 +13,17 @@ public class TimingSaver {
 
     Context context;
 
-    public ArrayList<Timing> getTimings() {
-        return Timings;
+    public ArrayList<TimingClass> getTimingClasses() {
+        return timingClasses;
     }
 
-    ArrayList<Timing> Timings = new ArrayList<>();
+    ArrayList<TimingClass> timingClasses = new ArrayList<>();
 
     public void save(){
         try{
             ObjectOutputStream outputStream = new ObjectOutputStream(
-                    context.openFileOutput("Timing.txt",Context.MODE_PRIVATE));
-            outputStream.writeObject(Timings);
+                    context.openFileOutput("TimingClass.txt",Context.MODE_PRIVATE));
+            outputStream.writeObject(timingClasses);
             outputStream.close();
         }
         catch (Exception e){
@@ -34,16 +31,16 @@ public class TimingSaver {
         }
     }
 
-    public ArrayList<Timing> load(){
+    public ArrayList<TimingClass> load(){
         try{
             ObjectInputStream inputStream= new ObjectInputStream(
-                    context.openFileInput("Timing.txt"));
-            Timings = (ArrayList<Timing>) inputStream.readObject();
+                    context.openFileInput("TimingClass.txt"));
+            timingClasses = (ArrayList<TimingClass>) inputStream.readObject();
             inputStream.close();
         }
         catch (Exception e){
             e.printStackTrace();
         }
-        return Timings;
+        return timingClasses;
     }
 }

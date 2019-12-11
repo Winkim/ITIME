@@ -1,4 +1,4 @@
-package com.winkim.itime.ui.add_timing;
+package com.winkim.itime.ui;
 
 import androidx.lifecycle.ViewModel;
 

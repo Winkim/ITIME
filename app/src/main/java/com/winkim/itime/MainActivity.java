@@ -12,17 +12,13 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.navigation.NavigationView;
-import com.winkim.itime.data.model.Timing;
-import com.winkim.itime.ui.add_timing.AddTimingActivity;
-import com.winkim.itime.ui.timing.TimingSaver;
-import com.winkim.itime.ui.timing.TimingViewModel;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
-import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -32,8 +28,11 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final int RESULT_UPDATE = 901;
     private AppBarConfiguration mAppBarConfiguration;
-    private ArrayList<Timing> timingArrayList = new ArrayList<>();
+    private ArrayList<TimingClass> timingClassArrayList = new ArrayList<>();
+    AddTimingActivity timingsArrayAdapter;
+    ListView listView;
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
     SimpleDateFormat simpleDateFormatMore = new SimpleDateFormat("MMM  dd,yyyy HH:mm:ss EEE", Locale.ENGLISH);
 
@@ -44,6 +43,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        init();
+
+        timingsArrayAdapter = new AddTimingActivity(MainActivity.this,R.layout.list_item_timings, timingClassArrayList);
+        listView = findViewById(R.layout.list_item_timings);
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,12 +84,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     private void init(){
         timingSaver = new TimingSaver(this);
-        timingArrayList = timingSaver.load();
-        if(timingArrayList.size()==0){
+        timingClassArrayList = timingSaver.load();
+        if(timingClassArrayList.size()==0){
             try {
-                timingArrayList.add(
-                        new Timing("New Year", "111",simpleDateFormat.parse("2020-01-01") ,
-                                "每年",R.drawable.ic_timing_picture_init,"11"))
+                timingClassArrayList.add(
+                        new TimingClass("New Year", "111",simpleDateFormat.parse("2020-01-01") ,
+                                "每年",R.drawable.ic_timing_picture_init,"11"));
             } catch (ParseException e) {
                 e.printStackTrace();
             }
@@ -102,6 +107,8 @@ public class MainActivity extends AppCompatActivity {
                     String returnedTitle = data.getStringExtra("title");
                     String returnedRemark = data.getStringExtra("remake");
                     String returnedDate=data.getStringExtra("date");
+                    String returnedRepeat = data.getStringExtra("repeat");
+                    String returnedTag=data.getStringExtra("tag");
 
                     //Bitmap bm = BitmapFactory.decodeFile(returnedImage);
 
@@ -113,41 +120,37 @@ public class MainActivity extends AppCompatActivity {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
-                    getTimingArrayList().add(0,new Timing(returnedTitle, returnedRemark,returnedDate,
-                            R.drawable.ic_timing_picture_init));
-                    AddTimingActivity.TimingsArrayAdapter.notifyDataSetChanged();
+                    getTimingClassArrayList().add(0,new TimingClass(returnedTitle, returnedRemark,date,returnedRepeat,
+                            R.drawable.ic_timing_picture_init,returnedTag));
+                    timingsArrayAdapter.notifyDataSetChanged();
                 }
-                /*if (data!=null){
-                    Uri selectedImage = data.getData();
-                    String[] filePathColumns = {MediaStore.Images.Media.DATA};
-                    Cursor c = getContentResolver().query(selectedImage, filePathColumns, null, null, null);
-                    c.moveToFirst();
-                    int columnIndex = c.getColumnIndex(filePathColumns[0]);
-                    String returnedImage=data.getStringExtra("ImagePath");
-                    imagePath = c.getString(columnIndex);
-                    Log.d("imagepath", returnedImage);
-                }*/
+
                 break;
             case 2:
                 if (resultCode == RESULT_OK) {
                     int position=data.getIntExtra("position", 0);
-                    timeItemList.remove(position);
-                    timeAdapter.notifyDataSetChanged();
+                    timingClassArrayList.remove(position);
+                    timingsArrayAdapter.notifyDataSetChanged();
                 }
                 if (resultCode == RESULT_UPDATE) {
                     int position = data.getIntExtra("position", 0);
                     String title = data.getStringExtra("title");
-                    String description = data.getStringExtra("description");
+                    String remark = data.getStringExtra("remake");
                     String date=data.getStringExtra("date");
-                    TimeItem timeItem=timeItemList.get(position);
-                    timeItem.setTitle(title);
-                    timeItem.setDescription(description);
+                    String repeat = data.getStringExtra("repeat");
+                    String tag=data.getStringExtra("tag");
+                    TimingClass timingClass = timingClassArrayList.get(position);
+                    timingClass.setTitle(title);
+                    timingClass.setRemark(remark);
+                    timingClass.setRepeat(repeat);
+                    timingClass.setTag(tag);
+
                     try {
-                        timeItem.setDate(simpleDateFormat.parse(date));
+                        timingClass.setDate(simpleDateFormatMore.parse(date));
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
-                    timeAdapter.notifyDataSetChanged();
+                    timingsArrayAdapter.notifyDataSetChanged();
                 }
                 break;
 
@@ -158,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public ArrayList<Timing> getTimingArrayList(){return timingArrayList;}
+    public ArrayList<TimingClass> getTimingClassArrayList(){return timingClassArrayList;}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

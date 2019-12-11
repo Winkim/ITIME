@@ -1,109 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/addtiming"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.add_timing.AddTimingFragment">
+    android:background="#03A9F4">
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="161dp"
-        android:background="#000000"
-        android:orientation="vertical">
+        android:layout_height="260dp"
+        android:id="@+id/frameLayout1"
+        >
 
-        <TextView
-            android:id="@+id/textViewTimingTitle"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/text_view_addtiming_set_title"
-            android:textColor="#ffffff"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="match_parent"
+            android:background="#000000"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/select_img"
+                android:scaleType="centerCrop"
+                >
 
-        <EditText
-            android:id="@+id/editTextTimingTitle"
+            </ImageView>
+            <Button
+                android:id="@+id/button_return"
+                android:background="#00000000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="←"
+                android:textSize="30dp"
+                android:textColor="#ffffff"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/button_ok"
+                android:background="#00000000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="√"
+                android:textSize="20dp"
+                android:textColor="#ffffff"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_view_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:layout_marginLeft="44dp"
+                android:layout_marginTop="28dp"
+                android:text="标题"
+                android:textColor="#ffffff"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_return" />
+
+            <EditText
+                android:id="@+id/edit_text_title"
+                android:layout_width="315dp"
+                android:layout_height="41dp"
+                android:layout_marginStart="44dp"
+                android:layout_marginLeft="44dp"
+                android:layout_marginTop="12dp"
+                android:ems="10"
+                android:hint="生日，纪念日，节日，考试..."
+                android:textColorHint="#ffffff"
+                android:inputType="textPersonName"
+                android:textColor="#ffffff"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_title" />
+
+            <TextView
+                android:id="@+id/text_view_remark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:layout_marginLeft="44dp"
+                android:layout_marginTop="70dp"
+                android:text="备注"
+                android:textColor="#ffffff"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_title" />
+
+            <EditText
+                android:id="@+id/edit_text_remark"
+                android:layout_width="315dp"
+                android:layout_height="41dp"
+                android:layout_marginStart="44dp"
+                android:layout_marginLeft="44dp"
+                android:layout_marginTop="50dp"
+                android:ems="10"
+                android:hint="想说的话，目标，格言..."
+                android:inputType="textPersonName"
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edit_text_title" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+
+        android:background="#ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_text_remark">
+
+        <ListView
+            android:id="@+id/list_view_select"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:ellipsize="end"
-            android:ems="10"
-            android:hint="@string/edit_view_addtiming_set_title"
-            android:inputType="textPersonName"
-            android:textColorHint="#ffffff"
-            app:layout_constraintStart_toStartOf="@+id/textViewTimingTitle"
-            app:layout_constraintTop_toBottomOf="@+id/textViewTimingTitle"
-            />
+            android:layout_height="match_parent"
+            android:divider="#CCCCCC" />
+    </FrameLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>
 
-        <TextView
-            android:id="@+id/textViewRemark"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:text="@string/text_view_addtiming_repeat"
-            android:textColor="#ffffff"
-            app:layout_constraintStart_toStartOf="@+id/editTextTimingTitle"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTimingTitle" />
-
-        <EditText
-            android:id="@+id/editTextTimingRemark"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
-            android:ellipsize="end"
-            android:ems="10"
-            android:hint="@string/text_view_addtiming_repeat"
-            android:inputType="textPersonName"
-            android:textColorHint="#ffffff"
-            app:layout_constraintStart_toStartOf="@+id/textViewRemark"
-            app:layout_constraintTop_toBottomOf="@+id/textViewRemark" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/btn_addtiming_set_date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableStart="@drawable/ic_btn_addtiming_set_data_24px"
-        android:text="@string/btn_text_view_addtiming_date1"
-        android:textFontWeight="@android:integer/config_longAnimTime"
-        android:gravity="center_vertical"
-        android:background="@null"
-        />
-
-    <Button
-        android:id="@+id/btn_addtiming_set_repeat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableStart="@drawable/ic_btn_addtiming_set_repeat_24px"
-        android:text="@string/btn_text_view_addtiming_repeat1"
-        android:gravity="center_vertical"/>
-
-    <Button
-        android:id="@+id/btn_addtiming_set_picture"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableStart="@drawable/ic_btn_addtiming_set_picture_24px"
-        android:text="@string/btn_text_view_addtiming_set_picture"
-        android:gravity="center_vertical"/>
-
-    <Button
-        android:id="@+id/btn_addtiming_set_tag"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableStart="@drawable/ic_btn_addtiming_set_tag_24px"
-        android:text="@string/btn_text_view_addtiming_add_tag"
-        android:gravity="center_vertical"/>
-
-</LinearLayout>

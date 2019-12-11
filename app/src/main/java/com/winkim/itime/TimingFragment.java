@@ -1,4 +1,4 @@
-package com.winkim.itime.ui.timing;
+package com.winkim.itime;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,9 +8,6 @@ import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
-import com.winkim.itime.R;
-import com.winkim.itime.ui.add_timing.AddTimingActivity;
 
 public class TimingFragment extends Fragment {
 
