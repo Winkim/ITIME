@@ -15,7 +15,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -39,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         listView=findViewById(R.id.list_view_content);
+
         setSupportActionBar(toolbar);
 
         init();
@@ -46,16 +50,18 @@ public class MainActivity extends AppCompatActivity {
         timingsArrayAdapter = new TimingArrayAdapter(MainActivity.this,R.layout.list_item_timings, timingClassArrayList);
         listView.setAdapter(timingsArrayAdapter);
 
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Add new timing", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
                 Intent intent = new Intent(MainActivity.this, AddTimingActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent,1);
             }
         });
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
 
@@ -101,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
         switch (requestCode) {
             case 1:
                 if (resultCode == RESULT_OK) {
+                    int position=data.getIntExtra("position",0);
                     String returnedTitle = data.getStringExtra("title");
                     String returnedRemark = data.getStringExtra("remake");
                     String returnedDate=data.getStringExtra("date");
@@ -114,12 +121,13 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         date = sdFormat.parse(returnedDate);
                     } catch (ParseException e) {
-                        // TODO Auto-generated catch block
                         e.printStackTrace();
                     }
-                    getTimingClassArrayList().add(0,new TimingClass(returnedTitle, returnedRemark,date,returnedRepeat,
+                    timingClassArrayList.add(position,new TimingClass(returnedTitle, returnedRemark,date,returnedRepeat,
                             R.drawable.ic_timing_picture_init,returnedTag));
                     timingsArrayAdapter.notifyDataSetChanged();
+
+                    Toast.makeText(this, "新建成功", Toast.LENGTH_SHORT).show();
                 }
 
                 break;
@@ -148,17 +156,15 @@ public class MainActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                     timingsArrayAdapter.notifyDataSetChanged();
+                    Toast.makeText(this, "修改成功", Toast.LENGTH_SHORT).show();
                 }
                 break;
-
-
 
             default:
         }
 
     }
 
-    public ArrayList<TimingClass> getTimingClassArrayList(){return timingClassArrayList;}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -28,7 +28,7 @@ import java.util.ArrayList;
 public class AddTimingActivity extends AppCompatActivity {
     private ListView listView;
     private Button btn_Return;
-    private Button btn_OK;
+    Button btn_OK;
     private EditText editTitle;
     private EditText editRemark;
     private TextView textView;
