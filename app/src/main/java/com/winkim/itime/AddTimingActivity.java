@@ -3,7 +3,6 @@ package com.winkim.itime;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
@@ -25,17 +24,17 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import static android.app.PendingIntent.getActivity;
 
 public class AddTimingActivity extends AppCompatActivity {
-    ListView listView;
-    Button btn_Return;
-    Button btn_OK;
-    EditText editTitle;
-    EditText editRemark;
-    TextView textView;
-    ImageView imageView;
+    private ListView listView;
+    private Button btn_Return;
+    private Button btn_OK;
+    private EditText editTitle;
+    private EditText editRemark;
+    private TextView textView;
+    private ImageView imageView;
     SelectAdapter selectAdapter;
+    private int position;
     private ArrayList<SelectTimingActivity> selectTimingActivities;
 
     @Override
@@ -81,13 +80,12 @@ public class AddTimingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_timing);
+
         btn_Return =findViewById(R.id.button_return);
         btn_OK =findViewById(R.id.button_ok);
         editTitle=findViewById(R.id.edit_text_title);
         editRemark =findViewById(R.id.edit_text_remark);
         listView=findViewById(R.id.list_view_select);
-        editTitle=findViewById(R.id.edit_text_title);
-        editRemark =findViewById(R.id.edit_text_remark);
         imageView=findViewById(R.id.image2);
         textView=findViewById(R.id.remark2);
 
@@ -97,7 +95,7 @@ public class AddTimingActivity extends AppCompatActivity {
         String title=intent.getStringExtra("title");
         String remark=intent.getStringExtra("remark");
         String date=intent.getStringExtra("date");
-        final int position=intent.getIntExtra("position",0);
+        position=intent.getIntExtra("position",0);
 
         if(title!=null) { editTitle.setText(title); }
         if(remark!=null) { editRemark.setText(remark); }
@@ -123,7 +121,6 @@ public class AddTimingActivity extends AppCompatActivity {
                 intent.putExtra("date",
                         selectAdapter.year+"-"+selectAdapter.month+"-"+selectAdapter.day+" "
                                 +selectAdapter.hour+":"+selectAdapter.minute+":"+selectAdapter.second);
-                //intent.putExtra("imagePath", imagePath);
                 setResult(RESULT_OK, intent);
                 Log.d("timingTitle", editTitle.getText().toString());
                 AddTimingActivity.this.finish();

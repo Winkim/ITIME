@@ -10,7 +10,7 @@ public class ThemeColorViewModel extends ViewModel {
 
     public ThemeColorViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is theme_color fragment");
+        mText.setValue("");
     }
 
     public LiveData<String> getText() {

@@ -29,6 +29,7 @@ public class TimingChangeActivity extends AppCompatActivity {
     TextView titleTextView2,remarkTextView2;
     TextView dateTextView,countTextView;
     private MyCount mc1,mc2;
+    private int position;
     SimpleDateFormat simpleDateFormat2 = new SimpleDateFormat("MMM  dd,yyyy HH:mm:ss EEE", Locale.ENGLISH);
     SimpleDateFormat sdFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     int count;
@@ -59,7 +60,6 @@ public class TimingChangeActivity extends AppCompatActivity {
                     count2 = TimingClass.getGapCount(date3, date2);
                     mc1.cancel();
                     mc2 = new MyCount(count2*1000, 1000);
-
                     mc2.start();
                 }
                 break;
@@ -84,8 +84,7 @@ public class TimingChangeActivity extends AppCompatActivity {
         final String title=intent.getStringExtra("Title");
         String date=intent.getStringExtra("Date");
         final String remark=intent.getStringExtra("Remark");
-        final int position=intent.getIntExtra("position", 0);
-        //final int count=intent.getIntExtra("count", 0);
+        position=intent.getIntExtra("position", 0);
         Date date1=new Date(System.currentTimeMillis());
         int count=0;
         try {

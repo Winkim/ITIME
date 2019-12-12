@@ -2,6 +2,7 @@ package com.winkim.itime;
 
 import android.content.Context;
 
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
@@ -26,7 +27,7 @@ public class TimingSaver {
             outputStream.writeObject(timingClasses);
             outputStream.close();
         }
-        catch (Exception e){
+        catch (IOException e){
             e.printStackTrace();
         }
     }
