@@ -26,13 +26,13 @@ import java.util.ArrayList;
 
 
 public class AddTimingActivity extends AppCompatActivity {
-    private ListView listView;
-    private Button btn_Return;
+    ListView listView;
+    Button btn_Return;
     Button btn_OK;
-    private EditText editTitle;
-    private EditText editRemark;
-    private TextView textView;
-    private ImageView imageView;
+    EditText editTitle;
+    EditText editRemark;
+    TextView textView;
+    ImageView imageView;
     SelectAdapter selectAdapter;
     private int position;
     private ArrayList<SelectTimingActivity> selectTimingActivities;

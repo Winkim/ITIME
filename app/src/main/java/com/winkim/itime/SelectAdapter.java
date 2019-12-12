@@ -141,7 +141,7 @@ public class SelectAdapter extends ArrayAdapter<SelectTimingActivity> {
                     final String[] items = {"Week", "Month", "Year", "Custom"};
                     AlertDialog.Builder builder;
                     builder = new AlertDialog.Builder(getContext()).setIcon(R.mipmap.ic_launcher)
-                            .setTitle("Period")
+                            .setTitle("重复设置")
                             .setItems(items, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialogInterface, int i) {
