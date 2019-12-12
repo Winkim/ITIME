@@ -1,4 +1,4 @@
-package com.winkim.itime.ui;
+package com.winkim.itime;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -10,7 +10,7 @@ public class TimingViewModel extends ViewModel {
 
     public TimingViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is timing fragment");
+        mText.setValue("");
     }
 
     public LiveData<String> getText() {

@@ -35,7 +35,6 @@ public class AddTimingActivity extends AppCompatActivity {
     EditText editRemark;
     TextView textView;
     ImageView imageView;
-    ImageView img;
     SelectAdapter selectAdapter;
     private ArrayList<SelectTimingActivity> selectTimingActivities;
 
@@ -92,22 +91,17 @@ public class AddTimingActivity extends AppCompatActivity {
         imageView=findViewById(R.id.image2);
         textView=findViewById(R.id.remark2);
 
-
         Init();
+
         Intent intent=getIntent();
         String title=intent.getStringExtra("title");
         String remark=intent.getStringExtra("remark");
         String date=intent.getStringExtra("date");
         final int position=intent.getIntExtra("position",0);
-        if(title!=null) {
-            editTitle.setText(title);
-        }
-        if(remark!=null) {
-            editRemark.setText(remark);
-        }
-        if(date!=null) {
-            selectTimingActivities.get(0).setRemark(date);
-        }
+
+        if(title!=null) { editTitle.setText(title); }
+        if(remark!=null) { editRemark.setText(remark); }
+        if(date!=null) { selectTimingActivities.get(0).setRemark(date); }
 
         selectAdapter = new SelectAdapter(AddTimingActivity.this, R.layout.select_item ,selectTimingActivities);
         listView.setAdapter(selectAdapter);

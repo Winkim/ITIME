@@ -10,7 +10,7 @@ public class HelpAndFeedbackViewModel extends ViewModel {
 
     public HelpAndFeedbackViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is help and feedback fragment");
+        mText.setValue("");
     }
 
     public LiveData<String> getText() {

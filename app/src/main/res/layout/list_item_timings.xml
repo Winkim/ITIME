@@ -2,27 +2,34 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".AddTimingActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    >
+    tools:context=".AddTimingActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/image_view_picture"
             android:layout_width="125dp"
             android:layout_height="125dp"
+            android:tag="@android:string/autofill"
             app:srcCompat="@drawable/ic_btn_addtiming_set_picture_24px" />
+
+        <TextView
+            android:id="@+id/count_text_view"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center_vertical"
+            android:textColor="#000000"
+            android:textSize="25sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="125dp"
-
             android:orientation="vertical">
 
             <TextView
@@ -32,7 +39,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Name" />
+                android:text="Name"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/text_view_date"
@@ -41,7 +49,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Name" />
+                android:text="Name"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/text_view_remark"
@@ -50,7 +59,8 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Name" />
+                android:text="Name"
+                android:textSize="20sp" />
         </LinearLayout>
 
     </LinearLayout>

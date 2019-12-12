@@ -34,6 +34,7 @@ class TimingArrayAdapter extends ArrayAdapter<TimingClass> {
         Date date = new Date(System.currentTimeMillis());
         final TimingClass timingClass = getItem(position);//获取当前项的实例
         View view = LayoutInflater.from(getContext()).inflate(R.layout.list_item_timings, parent, false);
+
         ((ImageView) view.findViewById(R.id.image_view_picture)).setImageResource(timingClass.getPicture());
         ((TextView) view.findViewById(R.id.text_view_title)).setText(timingClass.getTitle());
         ((TextView) view.findViewById(R.id.text_view_date)).setText((CharSequence) simpleDateFormat.format(timingClass.getDate()));

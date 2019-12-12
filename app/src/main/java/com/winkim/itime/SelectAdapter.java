@@ -1,6 +1,5 @@
 package com.winkim.itime;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -10,22 +9,15 @@ import android.content.Intent;
 import android.os.Build;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.ImageView;
-import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-
-import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -33,7 +25,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-import static androidx.core.app.ActivityCompat.startActivityForResult;
 
 public class SelectAdapter extends ArrayAdapter<SelectTimingActivity> {
     private int resourceId;
@@ -79,9 +70,6 @@ public class SelectAdapter extends ArrayAdapter<SelectTimingActivity> {
                     calendar.setTimeInMillis(System.currentTimeMillis());
                     datePicker.init(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
                             calendar.get(Calendar.DAY_OF_MONTH), null);
-                    /**
-                     * 下面这行代吗 设置的是只显示年月
-                     */
 
                     //设置date布局
                     builder.setView(view);
@@ -120,7 +108,6 @@ public class SelectAdapter extends ArrayAdapter<SelectTimingActivity> {
                                     try {
                                         date = sdFormat.parse(datetime);
                                     } catch (ParseException e) {
-                                        // TODO Auto-generated catch block
                                         e.printStackTrace();
                                     }
 

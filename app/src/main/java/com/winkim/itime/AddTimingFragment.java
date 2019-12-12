@@ -12,8 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.winkim.itime.ui.AddTimingViewModel;
-
 public class AddTimingFragment extends Fragment {
 
     private AddTimingViewModel mViewModel;

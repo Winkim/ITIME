@@ -10,7 +10,7 @@ public class LabelViewModel extends ViewModel {
 
     public LabelViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is label fragment");
+        mText.setValue("");
     }
 
     public LiveData<String> getText() {

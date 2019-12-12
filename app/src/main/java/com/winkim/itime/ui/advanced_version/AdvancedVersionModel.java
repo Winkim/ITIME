@@ -10,7 +10,7 @@ public class AdvancedVersionModel extends ViewModel {
 
     public AdvancedVersionModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is change_font fragment");
+        mText.setValue("");
     }
 
     public LiveData<String> getText() {
