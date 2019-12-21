@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         if(timingClassArrayList.size()==0){
             try {
                 timingClassArrayList.add(
-                        new TimingClass("New Year", "111",simpleDateFormat.parse("2020-01-01") ,
+                        new TimingClass("New Year", "Happy New Year",simpleDateFormat.parse("2020-01-01") ,
                                 "每年",R.drawable.ic_timing_picture_init,"11"));
             } catch (ParseException e) {
                 e.printStackTrace();

@@ -116,7 +116,7 @@ public class TimingChangeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 new android.app.AlertDialog.Builder(context)
-                        .setMessage("Delete this moment?")
+                        .setMessage("确定删除这个倒计时吗？")
                         .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
